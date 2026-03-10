@@ -19,7 +19,7 @@ while guess != computer_number:
         continue
     print(f'{red}Loading...{reset}')
     sleep(2)
-    '\n'
+    print('\n')
     if guess == computer_number:
         print(f'You Guessed Correct in {attempts} attempts ')
         print('=~' * 20)
