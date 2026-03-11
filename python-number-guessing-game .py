@@ -19,8 +19,14 @@ while guess != computer_number:
     except EOFError:
         print(f'{red}Input interrupted{reset}')
         break
-    attempts += 1
+    except KeyboardInterrupt:
+        print(f'{red}Input interrupted{reset}')
+        break
+    if guess < 1 or guess > 10:
+        print('Number must be between 1 and 10')
+        continue
     print(f'{red}Loading...{reset}')
+    attempts += 1
     sleep(2)
     print('\n')
     if guess == computer_number:
