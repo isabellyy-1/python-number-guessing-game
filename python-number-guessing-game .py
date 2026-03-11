@@ -11,18 +11,21 @@ guess = 0
 attempts = 0
 computer_number = random.randint(1,10)
 while guess != computer_number:
-    attempts += 1
     try:
         guess = int(input(f'{blue}Try to Guess Number Between 1,10:{reset}'))
     except ValueError:
         print(f'{red}Type a Valid Number{reset}')
         continue
+    except EOFError:
+        print(f'{red}Input interrupted{reset}')
+        break
+    attempts += 1
     print(f'{red}Loading...{reset}')
     sleep(2)
     print('\n')
     if guess == computer_number:
-        print(f'You Guessed Correct in {attempts} attempts ')
+        print(f'You guessed correctly in {attempts} attempts! ')
         print('=~' * 20)
     else:
-        print(f'Wrong Guess. Try Again!!!{attempts} attempts')
+        print(f'Wrong Guess. Try Again!!! {attempts} attempts')
         print('=~' * 20)
